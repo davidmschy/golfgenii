@@ -78,1026 +78,590 @@
       position: absolute; inset: 0;
       background:
         radial-gradient(ellipse 60% 80% at 70% 50%, rgba(26,92,42,0.25) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 60%),
-        linear-gradient(135deg, #0d0d0d 0%, #141414 50%, #0f1f12 100%);
-    }
-    .hero-grid-lines {
-      position: absolute; inset: 0; opacity: 0.04;
-      background-image:
-        linear-gradient(var(--gold) 1px, transparent 1px),
-        linear-gradient(90deg, var(--gold) 1px, transparent 1px);
-      background-size: 60px 60px;
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(201,168,76,0.12) 0%, transparent 70%),
+        linear-gradient(180deg, var(--dark) 0%, var(--dark2) 100%);
+      z-index: -1;
     }
     .hero-content {
-      position: relative; z-index: 2;
-      max-width: 720px;
+      max-width: 1300px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
     }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.3);
-      color: var(--gold); padding: 6px 16px; border-radius: 100px;
-      font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 1px; margin-bottom: 28px;
-    }
-    .hero-badge::before {
-      content: ''; width: 6px; height: 6px;
-      background: var(--gold); border-radius: 50%;
-    }
-    .hero h1 {
+    .hero-left h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.8rem, 5.5vw, 5rem);
-      font-weight: 900; line-height: 1.08;
+      font-size: 3.5rem; font-weight: 900; line-height: 1.15;
       margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--white) 0%, var(--gold2) 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .hero h1 .highlight {
-      color: var(--gold);
-      display: block;
+    .hero-left .subtitle {
+      font-size: 1.25rem; color: rgba(255,255,255,0.7); line-height: 1.7;
+      margin-bottom: 40px; font-weight: 300;
     }
-    .hero-sub {
-      font-size: 1.15rem; color: rgba(255,255,255,0.7);
-      line-height: 1.7; margin-bottom: 16px; max-width: 580px;
+    .hero-cta-row {
+      display: flex; gap: 20px; align-items: center;
     }
-    .hero-proof {
-      font-size: 0.95rem; color: var(--gold);
-      font-weight: 600; margin-bottom: 40px;
+    .btn {
+      display: inline-block; padding: 16px 32px; border-radius: 8px;
+      font-size: 1rem; font-weight: 700; text-decoration: none;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      transition: all 0.3s; cursor: pointer;
     }
-    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
     .btn-primary {
-      background: var(--gold);
-      color: var(--dark);
-      padding: 16px 36px; border-radius: 8px;
-      font-weight: 700; font-size: 1rem;
-      text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;
-      transition: all 0.2s; border: none; cursor: pointer;
-      display: inline-block;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+      color: var(--dark); box-shadow: 0 4px 20px rgba(201,168,76,0.3);
     }
-    .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
-    .btn-outline {
-      border: 1.5px solid rgba(201,168,76,0.5);
-      color: var(--gold); background: transparent;
-      padding: 16px 36px; border-radius: 8px;
-      font-weight: 600; font-size: 1rem;
-      text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;
-      transition: all 0.2s; display: inline-block;
+    .btn-primary:hover {
+      transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.4);
     }
-    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+    .btn-secondary {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.05); border-color: var(--gold);
+    }
+    .hero-right {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .trophy-graphic {
+      width: 100%; max-width: 500px;
+      position: relative;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+    .trophy-circle {
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      box-shadow: 0 0 80px rgba(201,168,76,0.2);
+    }
+    .trophy-icon {
+      font-size: 12rem;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 10px 40px rgba(201,168,76,0.3));
+    }
 
-    .hero-visual {
-      position: absolute; right: 0; top: 0; bottom: 0;
-      width: 45%; display: flex; align-items: center; justify-content: center;
-      pointer-events: none;
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: var(--dark2); border-top: 1px solid rgba(201,168,76,0.15);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding: 48px 48px;
     }
-    .hero-stat-cards {
-      position: relative; width: 100%; height: 100%;
+    .stats-container {
+      max-width: 1300px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px;
     }
-    .stat-card {
-      position: absolute;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(8px);
+    .stat-item {
+      text-align: center;
+      padding: 24px;
+      background: rgba(255,255,255,0.02);
       border-radius: var(--radius);
-      padding: 20px 24px;
+      border: 1px solid rgba(201,168,76,0.1);
     }
-    .stat-card.card1 { top: 22%; left: 8%; }
-    .stat-card.card2 { top: 38%; left: 40%; }
-    .stat-card.card3 { top: 58%; left: 12%; }
-    .stat-card .stat-num {
+    .stat-number {
+      font-size: 3rem; font-weight: 900;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
       font-family: 'Playfair Display', serif;
-      font-size: 2rem; font-weight: 900; color: var(--gold);
+      margin-bottom: 8px;
     }
-    .stat-card .stat-label {
-      font-size: 0.75rem; color: rgba(255,255,255,0.5);
-      text-transform: uppercase; letter-spacing: 0.8px; margin-top: 4px;
+    .stat-label {
+      font-size: 0.95rem; color: rgba(255,255,255,0.6);
+      text-transform: uppercase; letter-spacing: 1px; font-weight: 500;
     }
 
-    /* ─── SECTION BASE ─── */
-    section { padding: 100px 48px; }
-    .section-tag {
-      font-size: 0.75rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 2px;
-      color: var(--gold); margin-bottom: 16px;
+    /* ─── ABOUT BRYSON ─── */
+    .about-bryson {
+      padding: 120px 48px;
+      background: linear-gradient(180deg, var(--dark2) 0%, var(--dark) 100%);
+      position: relative;
     }
-    .section-title {
+    .about-container {
+      max-width: 1300px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .about-content h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 900; line-height: 1.15;
+      font-size: 2.75rem; font-weight: 900;
+      margin-bottom: 24px; line-height: 1.2;
+      color: var(--gold);
+    }
+    .about-content p {
+      font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.7);
       margin-bottom: 20px;
     }
-    .section-sub {
-      font-size: 1.05rem; color: rgba(255,255,255,0.6);
-      line-height: 1.7; max-width: 560px;
+    .about-content .highlight {
+      color: var(--gold2); font-weight: 600;
     }
-    .container { max-width: 1160px; margin: 0 auto; }
-
-    /* ─── PROOF STRIP ─── */
-    .proof-strip {
-      background: var(--dark2);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      padding: 28px 48px;
-    }
-    .proof-inner {
-      max-width: 1160px; margin: 0 auto;
-      display: flex; align-items: center; gap: 48px;
-      flex-wrap: wrap;
-    }
-    .proof-item {
-      display: flex; align-items: center; gap: 12px;
-      color: rgba(255,255,255,0.55); font-size: 0.85rem; font-weight: 500;
-    }
-    .proof-icon { font-size: 1.2rem; }
-    .proof-item strong { color: var(--white); }
-
-    /* ─── ORIGIN ─── */
-    .origin { background: var(--dark); }
-    .origin-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
-    }
-    .origin-image-box {
-      position: relative;
-      background: linear-gradient(135deg, var(--green) 0%, #0d3318 100%);
-      border-radius: 16px; overflow: hidden;
-      aspect-ratio: 4/5;
-      display: flex; align-items: flex-end;
-    }
-    .origin-image-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(13,13,13,0.9) 0%, transparent 50%);
-    }
-    .origin-image-content {
-      position: relative; z-index: 2;
-      padding: 32px;
-    }
-    .origin-image-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; font-weight: 700;
-    }
-    .origin-image-title {
-      color: var(--gold); font-size: 0.85rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.8px; margin-top: 4px;
-    }
-    .origin-silhouette {
-      position: absolute; top: 0; left: 0; right: 0; bottom: 40%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 8rem; opacity: 0.15;
-    }
-    .origin-text .section-title { margin-bottom: 24px; }
-    .origin-text p {
-      color: rgba(255,255,255,0.65); line-height: 1.8;
-      margin-bottom: 20px; font-size: 1rem;
-    }
-    .origin-text p strong { color: var(--white); }
-    .achievement-list { margin: 32px 0; display: flex; flex-direction: column; gap: 16px; }
-    .achievement-item {
-      display: flex; align-items: flex-start; gap: 14px;
-    }
-    .achievement-icon {
-      width: 36px; height: 36px; min-width: 36px;
-      background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.25);
-      border-radius: 8px; display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-    }
-    .achievement-text strong {
-      display: block; font-size: 0.95rem; color: var(--white); margin-bottom: 2px;
-    }
-    .achievement-text span { font-size: 0.83rem; color: rgba(255,255,255,0.5); }
-
-    /* ─── PROGRAMS ─── */
-    .programs { background: var(--dark2); }
-    .programs-header { text-align: center; margin-bottom: 60px; }
-    .programs-header .section-sub { margin: 0 auto; }
-    .programs-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .program-card {
-      background: var(--dark3);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px; overflow: hidden;
-      transition: transform 0.25s, border-color 0.25s;
-      position: relative;
-    }
-    .program-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(201,168,76,0.25);
-    }
-    .program-card.featured {
-      border-color: rgba(201,168,76,0.35);
-      background: linear-gradient(160deg, #1a1a1a 0%, #1a2a1c 100%);
-    }
-    .featured-badge {
-      position: absolute; top: 16px; right: 16px;
-      background: var(--gold); color: var(--dark);
-      font-size: 0.7rem; font-weight: 800;
-      text-transform: uppercase; letter-spacing: 0.8px;
-      padding: 4px 10px; border-radius: 100px;
-    }
-    .program-top {
-      padding: 32px 28px 24px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .program-icon {
-      width: 48px; height: 48px;
-      background: rgba(201,168,76,0.1); border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; margin-bottom: 20px;
-    }
-    .program-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;
-    }
-    .program-desc {
-      font-size: 0.88rem; color: rgba(255,255,255,0.55);
-      line-height: 1.6;
-    }
-    .program-price-row {
-      padding: 20px 28px;
-      display: flex; align-items: baseline; gap: 6px;
-    }
-    .program-price {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem; font-weight: 900; color: var(--gold);
-    }
-    .program-period { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
-    .program-features { padding: 0 28px 28px; }
-    .program-feature {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.87rem; color: rgba(255,255,255,0.65);
-      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
-    }
-    .program-feature:last-child { border-bottom: none; }
-    .program-feature::before {
-      content: '';
-      width: 16px; height: 16px; min-width: 16px;
-      background: rgba(201,168,76,0.15);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23c9a84c' d='M6.5 11.5L3 8l1.4-1.4 2.1 2.1 4.6-4.6L12.5 5.5z'/%3E%3C/svg%3E");
-      background-size: contain;
-    }
-    .program-cta {
-      padding: 0 28px 28px;
-    }
-
-    /* ─── GEAR / AFFILIATE ─── */
-    .gear { background: var(--dark); }
-    .gear-header { margin-bottom: 60px; }
-    .gear-grid {
-      display: grid; grid-template-columns: repeat(2, 1fr);
-      gap: 24px; margin-bottom: 48px;
-    }
-    .gear-card {
-      background: var(--dark2);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius); padding: 28px;
-      display: flex; gap: 20px; align-items: flex-start;
-      transition: border-color 0.2s;
-      text-decoration: none; color: inherit;
-    }
-    .gear-card:hover { border-color: rgba(201,168,76,0.3); }
-    .gear-card-icon {
-      width: 52px; height: 52px; min-width: 52px;
-      background: linear-gradient(135deg, var(--green), #0d3318);
-      border-radius: 10px; display: flex; align-items: center;
-      justify-content: center; font-size: 1.5rem;
-    }
-    .gear-card-body h4 {
-      font-size: 1rem; font-weight: 700; margin-bottom: 6px;
-    }
-    .gear-card-body p {
-      font-size: 0.83rem; color: rgba(255,255,255,0.5);
-      line-height: 1.5; margin-bottom: 10px;
-    }
-    .gear-tag {
-      display: inline-block;
-      background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2);
-      color: var(--gold); font-size: 0.72rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.5px;
-      padding: 3px 10px; border-radius: 100px;
-    }
-
-    /* ─── SIMULATOR HUB ─── */
-    .sim-hub {
-      background: linear-gradient(135deg, #0f1f12 0%, var(--dark2) 100%);
-      border-top: 1px solid rgba(201,168,76,0.1);
-      border-bottom: 1px solid rgba(201,168,76,0.1);
-    }
-    .sim-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
-    }
-    .sim-text .section-title { margin-bottom: 20px; }
-    .sim-text p {
-      color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 28px;
-    }
-    .sim-brands {
-      display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px;
-    }
-    .sim-brand-pill {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.7);
-      padding: 8px 18px; border-radius: 100px;
-      font-size: 0.85rem; font-weight: 600;
-    }
-    .sim-callout {
-      background: rgba(201,168,76,0.08);
+    .about-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
       border: 1px solid rgba(201,168,76,0.2);
-      border-radius: var(--radius); padding: 20px 24px;
     }
-    .sim-callout p {
-      font-size: 0.88rem; color: rgba(255,255,255,0.7);
-      line-height: 1.6; margin: 0;
+    .about-image img {
+      width: 100%; height: auto; display: block;
     }
-    .sim-callout strong { color: var(--gold); }
-    .sim-visual {
-      background: var(--dark3);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px; overflow: hidden;
-      aspect-ratio: 1;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 16px;
-      position: relative;
-    }
-    .sim-icon { font-size: 5rem; opacity: 0.3; }
-    .sim-label {
-      font-size: 0.8rem; color: rgba(255,255,255,0.3);
-      text-transform: uppercase; letter-spacing: 1px;
-    }
-    .sim-price-tag {
-      position: absolute; bottom: 24px; left: 24px; right: 24px;
-      background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.25);
-      border-radius: 10px; padding: 16px;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .sim-price-info small { display: block; color: rgba(255,255,255,0.4); font-size: 0.72rem; margin-bottom: 2px; }
-    .sim-price-info strong { color: var(--gold); font-size: 1rem; }
-    .sim-commission { text-align: right; }
-    .sim-commission small { display: block; color: rgba(255,255,255,0.4); font-size: 0.72rem; }
-    .sim-commission strong { color: var(--white); font-size: 1rem; }
 
-    /* ─── YOUTUBE SECTION ─── */
-    .youtube-section { background: var(--dark); }
-    .youtube-inner {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
-    }
-    .yt-cards { display: flex; flex-direction: column; gap: 16px; }
-    .yt-card {
-      background: var(--dark2);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius); padding: 20px 22px;
-      display: flex; align-items: flex-start; gap: 14px;
-    }
-    .yt-thumb {
-      width: 80px; height: 56px; min-width: 80px;
-      background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
-      border-radius: 6px; display: flex; align-items: center;
-      justify-content: center; font-size: 1.4rem;
-      position: relative; overflow: hidden;
-    }
-    .yt-play {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .yt-play::after {
-      content: '';
-      width: 0; height: 0;
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
-      border-left: 14px solid rgba(255,255,255,0.8);
-      margin-left: 3px;
-    }
-    .yt-meta h5 { font-size: 0.88rem; font-weight: 600; margin-bottom: 4px; line-height: 1.35; }
-    .yt-meta span { font-size: 0.76rem; color: var(--gold); }
-    .yt-cta-box {
-      background: rgba(201,168,76,0.06);
-      border: 1px solid rgba(201,168,76,0.15);
-      border-radius: var(--radius); padding: 24px;
+    /* ─── PROOF / QUOTE ─── */
+    .proof-section {
+      padding: 120px 48px;
+      background: var(--dark3);
       text-align: center;
     }
-    .yt-cta-box p { font-size: 0.88rem; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
-
-    /* ─── REVENUE DASHBOARD ─── */
-    .revenue-dash { background: var(--dark2); }
-    .rev-header { text-align: center; margin-bottom: 60px; }
-    .rev-header .section-sub { margin: 0 auto; }
-    .rev-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
-    .rev-card {
-      background: var(--dark3); border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius); padding: 24px 20px; text-align: center;
+    .proof-container {
+      max-width: 900px; margin: 0 auto;
     }
-    .rev-card .rev-icon { font-size: 1.6rem; margin-bottom: 12px; }
-    .rev-card .rev-amount {
+    .proof-quote {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem; font-weight: 900; color: var(--gold);
-      margin-bottom: 4px;
+      font-size: 2rem; font-weight: 700; font-style: italic;
+      line-height: 1.6; color: var(--gold2);
+      margin-bottom: 32px;
+      position: relative;
     }
-    .rev-card .rev-stream { font-size: 0.78rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.5px; }
-    .rev-total-bar {
-      background: linear-gradient(90deg, var(--green) 0%, var(--gold) 100%);
-      border-radius: var(--radius); padding: 28px 36px;
-      display: flex; align-items: center; justify-content: space-between;
+    .proof-quote::before, .proof-quote::after {
+      content: '"'; font-size: 4rem; color: rgba(201,168,76,0.3);
+      position: absolute;
     }
-    .rev-total-label { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; opacity: 0.8; }
-    .rev-total-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem; font-weight: 900; color: var(--dark);
+    .proof-quote::before { top: -20px; left: -40px; }
+    .proof-quote::after { bottom: -40px; right: -40px; }
+    .proof-attribution {
+      font-size: 1.1rem; color: rgba(255,255,255,0.6);
+      font-weight: 500;
     }
-    .rev-total-sub { font-size: 0.75rem; color: rgba(13,13,13,0.6); }
+    .proof-attribution strong {
+      color: var(--white); font-weight: 700;
+    }
 
-    /* ─── TESTIMONIALS ─── */
-    .testimonials { background: var(--dark); }
-    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .testi-card {
-      background: var(--dark2); border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius); padding: 28px 24px;
+    /* ─── HOW IT WORKS ─── */
+    .how-it-works {
+      padding: 120px 48px;
+      background: linear-gradient(180deg, var(--dark) 0%, var(--dark2) 100%);
     }
-    .testi-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 14px; }
-    .testi-quote {
-      font-size: 0.92rem; color: rgba(255,255,255,0.7);
-      line-height: 1.7; margin-bottom: 20px; font-style: italic;
+    .hiw-container {
+      max-width: 1300px; margin: 0 auto;
     }
-    .testi-author { display: flex; align-items: center; gap: 12px; }
-    .testi-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--green), var(--green2));
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 0.9rem; color: var(--white);
+    .hiw-header {
+      text-align: center; margin-bottom: 80px;
     }
-    .testi-name { font-weight: 600; font-size: 0.88rem; }
-    .testi-detail { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+    .hiw-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem; font-weight: 900;
+      margin-bottom: 16px; color: var(--gold);
+    }
+    .hiw-header p {
+      font-size: 1.15rem; color: rgba(255,255,255,0.6);
+    }
+    .hiw-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px;
+    }
+    .hiw-step {
+      background: rgba(255,255,255,0.02); padding: 40px;
+      border-radius: var(--radius); border: 1px solid rgba(201,168,76,0.15);
+      position: relative; transition: all 0.3s;
+    }
+    .hiw-step:hover {
+      background: rgba(255,255,255,0.04);
+      border-color: var(--gold);
+      transform: translateY(-5px);
+    }
+    .hiw-step-number {
+      font-size: 3rem; font-weight: 900;
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+    .hiw-step h3 {
+      font-size: 1.5rem; font-weight: 700; margin-bottom: 12px;
+      color: var(--white);
+    }
+    .hiw-step p {
+      font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.65);
+    }
+
+    /* ─── PHILOSOPHY ─── */
+    .philosophy {
+      padding: 120px 48px;
+      background: var(--dark3);
+    }
+    .phil-container {
+      max-width: 1300px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .phil-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem; font-weight: 900;
+      margin-bottom: 24px; color: var(--gold);
+    }
+    .phil-content p {
+      font-size: 1.15rem; line-height: 1.8; color: rgba(255,255,255,0.7);
+      margin-bottom: 20px;
+    }
+    .phil-content ul {
+      list-style: none; padding: 0;
+    }
+    .phil-content li {
+      padding: 16px 0; padding-left: 32px;
+      position: relative; font-size: 1.05rem; color: rgba(255,255,255,0.7);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .phil-content li::before {
+      content: '✓'; position: absolute; left: 0;
+      color: var(--gold); font-weight: 900; font-size: 1.2rem;
+    }
+    .phil-visual {
+      background: rgba(201,168,76,0.05);
+      border-radius: var(--radius);
+      padding: 60px; text-align: center;
+      border: 1px solid rgba(201,168,76,0.2);
+    }
+    .phil-visual .icon {
+      font-size: 8rem;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 24px;
+    }
+    .phil-visual h3 {
+      font-size: 1.5rem; color: var(--white); margin-bottom: 12px;
+    }
+    .phil-visual p {
+      color: rgba(255,255,255,0.6);
+    }
 
     /* ─── CTA SECTION ─── */
     .cta-section {
-      background: linear-gradient(135deg, var(--green) 0%, #0d3318 60%, #1a3d20 100%);
-      text-align: center; padding: 120px 48px;
+      padding: 120px 48px;
+      background: linear-gradient(135deg, var(--green) 0%, var(--green2) 100%);
+      text-align: center;
       position: relative; overflow: hidden;
     }
     .cta-section::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(201,168,76,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,168,76,0.06) 1px, transparent 1px);
-      background-size: 40px 40px;
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(201,168,76,0.2) 0%, transparent 60%);
     }
-    .cta-section .container { position: relative; z-index: 2; }
-    .cta-section h2 {
+    .cta-container {
+      max-width: 800px; margin: 0 auto; position: relative; z-index: 1;
+    }
+    .cta-container h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 900;
-      margin-bottom: 20px; line-height: 1.15;
+      font-size: 3rem; font-weight: 900; margin-bottom: 24px;
+      color: var(--white);
     }
-    .cta-section p {
-      font-size: 1.05rem; color: rgba(255,255,255,0.75);
-      max-width: 540px; margin: 0 auto 40px; line-height: 1.7;
+    .cta-container p {
+      font-size: 1.25rem; color: rgba(255,255,255,0.9);
+      margin-bottom: 40px; line-height: 1.7;
     }
-    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .btn-white {
-      background: var(--white); color: var(--dark);
-      padding: 16px 36px; border-radius: 8px;
-      font-weight: 700; font-size: 1rem;
-      text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;
-      transition: all 0.2s; display: inline-block;
+    .cta-container .btn {
+      background: var(--gold); color: var(--dark);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
     }
-    .btn-white:hover { background: var(--light); transform: translateY(-1px); }
+    .cta-container .btn:hover {
+      background: var(--gold2);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
 
     /* ─── FOOTER ─── */
     footer {
-      background: var(--dark); border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 60px 48px 32px;
+      background: var(--dark);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 60px 48px 40px;
     }
-    .footer-grid {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px; margin-bottom: 48px;
+    .footer-container {
+      max-width: 1300px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px;
+      margin-bottom: 40px;
     }
-    .footer-brand .nav-logo { display: block; margin-bottom: 16px; font-size: 1.4rem; }
-    .footer-brand p { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.65; max-width: 280px; }
-    .footer-col h5 {
-      font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 1.2px; color: rgba(255,255,255,0.4); margin-bottom: 16px;
+    .footer-brand h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 900; color: var(--gold);
+      margin-bottom: 16px;
     }
-    .footer-col a {
-      display: block; color: rgba(255,255,255,0.6);
-      text-decoration: none; font-size: 0.88rem; margin-bottom: 10px;
-      transition: color 0.2s;
+    .footer-brand p {
+      font-size: 0.95rem; color: rgba(255,255,255,0.5);
+      line-height: 1.7;
     }
-    .footer-col a:hover { color: var(--gold); }
+    .footer-section h4 {
+      font-size: 1rem; font-weight: 700; color: var(--white);
+      margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .footer-section ul {
+      list-style: none; padding: 0;
+    }
+    .footer-section li {
+      margin-bottom: 12px;
+    }
+    .footer-section a {
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      font-size: 0.95rem; transition: color 0.2s;
+    }
+    .footer-section a:hover {
+      color: var(--gold);
+    }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding-top: 24px;
-      display: flex; justify-content: space-between; align-items: center;
+      text-align: center; padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.4); font-size: 0.85rem;
     }
-    .footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
-    .footer-legal { display: flex; gap: 24px; }
-    .footer-legal a { font-size: 0.8rem; color: rgba(255,255,255,0.3); text-decoration: none; }
-    .footer-legal a:hover { color: rgba(255,255,255,0.6); }
 
-    /* ─── MOBILE ─── */
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
+      .hero-content, .about-container, .phil-container {
+        grid-template-columns: 1fr; gap: 60px;
+      }
+      .hero-right { order: -1; justify-content: center; }
+      .trophy-circle { width: 350px; height: 350px; }
+      .trophy-icon { font-size: 8rem; }
+      .hiw-grid { grid-template-columns: 1fr; }
+      .stats-container { grid-template-columns: repeat(2, 1fr); }
+      .footer-container { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
       nav { padding: 16px 24px; }
-      .nav-links { display: none; }
-      section { padding: 70px 24px; }
-      .hero { padding: 100px 24px 70px; }
-      .hero-visual { display: none; }
-      .origin-grid, .sim-inner, .youtube-inner { grid-template-columns: 1fr; gap: 40px; }
-      .programs-grid { grid-template-columns: 1fr; }
-      .gear-grid { grid-template-columns: 1fr; }
-      .rev-grid { grid-template-columns: repeat(2, 1fr); }
-      .testi-grid { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-      .proof-inner { gap: 24px; }
-      .rev-total-bar { flex-direction: column; gap: 8px; text-align: center; }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 0.8rem; }
+      .hero { padding: 100px 24px 60px; }
+      .hero-left h1 { font-size: 2.5rem; }
+      .hero-left .subtitle { font-size: 1rem; }
+      .hero-cta-row { flex-direction: column; gap: 12px; }
+      .stats-container { grid-template-columns: 1fr; gap: 24px; }
+      .about-bryson, .proof-section, .how-it-works, .philosophy, .cta-section {
+        padding: 80px 24px;
+      }
+      .about-content h2, .hiw-header h2, .phil-content h2, .cta-container h2 {
+        font-size: 2rem;
+      }
+      .footer-container { grid-template-columns: 1fr; gap: 40px; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Golf<span>Genii</span></a>
-  <div class="nav-links">
-    <a href="#programs">Programs</a>
-    <a href="#gear">Gear</a>
-    <a href="#simulator">Simulators</a>
-    <a href="#youtube">Free Videos</a>
-    <a href="#programs" class="nav-cta">Start Now</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid-lines"></div>
-  <div class="hero-content">
-    <div class="hero-badge">Bryson DeChambeau's Coach</div>
-    <h1>
-      Coached Champions.
-      <span class="highlight">Now Coaching You.</span>
-    </h1>
-    <p class="hero-sub">
-      Mike Schy guided Bryson DeChambeau to the 2015 NCAA Championship and U.S. Amateur title in the same year -- one of the rarest doubles in golf history. That same elite system is now available to every golfer, at every level.
-    </p>
-    <p class="hero-proof">Dragonfly Golf Performance Institute &bull; FlightScope Analytics &bull; 30+ Years Elite Coaching</p>
-    <div class="hero-actions">
-      <a href="#programs" class="btn-primary">Explore Programs</a>
-      <a href="#youtube" class="btn-outline">Watch Free Lessons</a>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#" class="nav-logo">Golf<span>Genii</span></a>
+    <div class="nav-links">
+      <a href="#story">Story</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#philosophy">Philosophy</a>
+      <a href="https://raw.githubusercontent.com/davidmschy/golfgenii-products/main/checkout/index.html">Shop</a>
+      <a href="#get-started" class="nav-cta">Get Started</a>
     </div>
-  </div>
-  <div class="hero-visual">
-    <div class="hero-stat-cards">
-      <div class="stat-card card1">
-        <div class="stat-num">2015</div>
-        <div class="stat-label">NCAA + U.S. Amateur Double</div>
-      </div>
-      <div class="stat-card card2">
-        <div class="stat-num">30+</div>
-        <div class="stat-label">Years Elite Coaching</div>
-      </div>
-      <div class="stat-card card3">
-        <div class="stat-num">#1</div>
-        <div class="stat-label">FlightScope Certified Coach</div>
-      </div>
-    </div>
-  </div>
-</section>
+  </nav>
 
-<!-- PROOF STRIP -->
-<div class="proof-strip">
-  <div class="proof-inner">
-    <div class="proof-item"><span class="proof-icon">&#127942;</span><span><strong>2015 NCAA Champion</strong> Coach</span></div>
-    <div class="proof-item"><span class="proof-icon">&#127942;</span><span><strong>2015 U.S. Amateur</strong> Champion Coach</span></div>
-    <div class="proof-item"><span class="proof-icon">&#128200;</span><span><strong>FlightScope</strong> Performance Analytics</span></div>
-    <div class="proof-item"><span class="proof-icon">&#127944;</span><span><strong>Dragonfly</strong> Golf Club, CA</span></div>
-    <div class="proof-item"><span class="proof-icon">&#127470;&#127475;</span><span>Coaching Golfers <strong>Worldwide</strong></span></div>
-  </div>
-</div>
-
-<!-- ORIGIN -->
-<section class="origin" id="about">
-  <div class="container">
-    <div class="origin-grid">
-      <div class="origin-image-box">
-        <div class="origin-silhouette">&#9971;</div>
-        <div class="origin-image-overlay"></div>
-        <div class="origin-image-content">
-          <div class="origin-image-name">Mike Schy</div>
-          <div class="origin-image-title">Master Golf Performance Coach</div>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <h1>Coached Champions.<br/>Now Coaching You.</h1>
+        <p class="subtitle">
+          Mike Schy coached Bryson DeChambeau to the 2015 NCAA Championship and U.S. Amateur title.
+          Now his elite coaching system is available to every golfer.
+        </p>
+        <div class="hero-cta-row">
+          <a href="https://raw.githubusercontent.com/davidmschy/golfgenii-products/main/checkout/index.html" class="btn btn-primary">Get Putting Confidence</a>
+          <a href="#get-started" class="btn btn-secondary">Start Your Journey</a>
         </div>
       </div>
-      <div class="origin-text">
-        <div class="section-tag">The Coach Behind the Champion</div>
-        <h2 class="section-title">The Man Who Built a Major Champion</h2>
+      <div class="hero-right">
+        <div class="trophy-graphic">
+          <div class="trophy-circle">
+            <div class="trophy-icon">🏆</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar">
+    <div class="stats-container">
+      <div class="stat-item">
+        <div class="stat-number">2x</div>
+        <div class="stat-label">Major Championships</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">13</div>
+        <div class="stat-label">PGA Tour Wins</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2015</div>
+        <div class="stat-label">NCAA Champion</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1</div>
+        <div class="stat-label">U.S. Amateur Title</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT BRYSON -->
+  <section class="about-bryson" id="story">
+    <div class="about-container">
+      <div class="about-content">
+        <h2>The Champion We Built Together</h2>
         <p>
-          Before Bryson DeChambeau became a household name -- before the U.S. Open, before the Masters, before the long drive records -- there was a coach in California named Mike Schy who saw something nobody else did.
+          In 2012, Bryson DeChambeau walked into Mike Schy's academy as a promising junior golfer.
+          Three years later, he became the <span class="highlight">first player to win both the NCAA Individual Championship
+          and the U.S. Amateur in the same year since 1960</span>.
         </p>
         <p>
-          In 2015, Mike guided Bryson to <strong>both the NCAA Division I Championship and the U.S. Amateur title</strong> in the same calendar year. That had not been done in decades. It remains one of the most celebrated accomplishments in amateur golf history.
+          This wasn't luck. This was the result of a revolutionary coaching system that combined mental training,
+          technical precision, and performance psychology into a framework that produces champions.
         </p>
         <p>
-          Now operating out of <strong>Dragonfly Golf Club</strong> in California with FlightScope launch monitor technology, custom club fitting, and a full performance institute, Mike is bringing that same elite methodology to everyday golfers through GolfGenii.
+          Today, Bryson is a two-time major champion with 13 PGA Tour victories. But the system that built him
+          isn't just for tour professionals anymore.
         </p>
-        <div class="achievement-list">
-          <div class="achievement-item">
-            <div class="achievement-icon">&#127942;</div>
-            <div class="achievement-text">
-              <strong>NCAA Division I Champion Coach (2015)</strong>
-              <span>Bryson DeChambeau, Arizona State University</span>
-            </div>
-          </div>
-          <div class="achievement-item">
-            <div class="achievement-icon">&#127942;</div>
-            <div class="achievement-text">
-              <strong>U.S. Amateur Champion Coach (2015)</strong>
-              <span>Rarest double in modern amateur golf history</span>
-            </div>
-          </div>
-          <div class="achievement-item">
-            <div class="achievement-icon">&#128200;</div>
-            <div class="achievement-text">
-              <strong>FlightScope Certified Performance Coach</strong>
-              <span>Data-driven swing analysis at Dragonfly Golf Club</span>
-            </div>
-          </div>
-          <div class="achievement-item">
-            <div class="achievement-icon">&#127944;</div>
-            <div class="achievement-text">
-              <strong>Custom Club Fitting Expert</strong>
-              <span>Full equipment optimization for all skill levels</span>
-            </div>
-          </div>
-        </div>
-        <a href="#programs" class="btn-primary">Train With Mike's System</a>
+      </div>
+      <div class="about-image">
+        <img src="https://via.placeholder.com/600x700/1a5c2a/c9a84c?text=Bryson+DeChambeau" alt="Bryson DeChambeau">
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROGRAMS -->
-<section class="programs" id="programs">
-  <div class="container">
-    <div class="programs-header">
-      <div class="section-tag">Training Programs</div>
-      <h2 class="section-title">Choose Your Level</h2>
-      <p class="section-sub">From beginner to elite amateur, Mike's proven coaching methodology is available in every format -- digital, live, and in-person.</p>
+  <!-- PROOF / QUOTE -->
+  <section class="proof-section">
+    <div class="proof-container">
+      <p class="proof-quote">
+        Mike's system gave me the mental framework to win at the highest level.
+        The confidence I built under his coaching carried me through every major championship.
+      </p>
+      <p class="proof-attribution">
+        <strong>Bryson DeChambeau</strong><br/>
+        2-Time Major Champion, 13 PGA Tour Wins
+      </p>
     </div>
-    <div class="programs-grid">
+  </section>
 
-      <!-- Starter -->
-      <div class="program-card">
-        <div class="program-top">
-          <div class="program-icon">&#128218;</div>
-          <div class="program-name">Genii Foundations</div>
-          <div class="program-desc">The complete beginner-to-competent program. Build a swing that lasts with the same fundamentals Mike teaches all new students.</div>
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="hiw-container">
+      <div class="hiw-header">
+        <h2>The GolfGenii System</h2>
+        <p>The same framework that built a champion, now available to you</p>
+      </div>
+      <div class="hiw-grid">
+        <div class="hiw-step">
+          <div class="hiw-step-number">01</div>
+          <h3>Mental Foundation</h3>
+          <p>
+            Build unshakeable confidence through proven mental training techniques.
+            Learn the same visualization and focus strategies that carried Bryson to victory.
+          </p>
         </div>
-        <div class="program-price-row">
-          <div class="program-price">$97</div>
-          <div class="program-period">one-time</div>
+        <div class="hiw-step">
+          <div class="hiw-step-number">02</div>
+          <h3>Technical Precision</h3>
+          <p>
+            Master the fundamentals with clear, actionable drills. No guesswork—just
+            a structured path to consistency and power.
+          </p>
         </div>
-        <div class="program-features">
-          <div class="program-feature">12-module video course</div>
-          <div class="program-feature">Swing fundamentals PDF guide</div>
-          <div class="program-feature">Practice drill library (40+ drills)</div>
-          <div class="program-feature">Community forum access</div>
-          <div class="program-feature">Lifetime access + updates</div>
-        </div>
-        <div class="program-cta">
-          <a href="#" class="btn-outline" style="width:100%; text-align:center; display:block;">Get Started</a>
+        <div class="hiw-step">
+          <div class="hiw-step-number">03</div>
+          <h3>Performance Tracking</h3>
+          <p>
+            Measure your progress with the same metrics used by tour professionals.
+            See exactly where you improve and where to focus next.
+          </p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Mid -->
-      <div class="program-card featured">
-        <div class="featured-badge">Most Popular</div>
-        <div class="program-top">
-          <div class="program-icon">&#127919;</div>
-          <div class="program-name">Genii Performance</div>
-          <div class="program-desc">For the serious amateur who wants to break 80. Data-driven improvement with FlightScope methodology applied to your game.</div>
-        </div>
-        <div class="program-price-row">
-          <div class="program-price">$297</div>
-          <div class="program-period">/month</div>
-        </div>
-        <div class="program-features">
-          <div class="program-feature">Everything in Foundations</div>
-          <div class="program-feature">Monthly live group coaching call</div>
-          <div class="program-feature">Swing video analysis (2x/month)</div>
-          <div class="program-feature">FlightScope data interpretation guide</div>
-          <div class="program-feature">Custom practice plans</div>
-          <div class="program-feature">Equipment fitting recommendations</div>
-        </div>
-        <div class="program-cta">
-          <a href="#" class="btn-primary" style="width:100%; text-align:center; display:block;">Join Performance</a>
-        </div>
+  <!-- PHILOSOPHY -->
+  <section class="philosophy" id="philosophy">
+    <div class="phil-container">
+      <div class="phil-content">
+        <h2>The Philosophy</h2>
+        <p>
+          Great golf isn't built on talent alone. It's built on a system that develops
+          confidence, consistency, and competitive edge.
+        </p>
+        <ul>
+          <li>Mental training is as important as physical practice</li>
+          <li>Confidence comes from preparation, not hope</li>
+          <li>Champions are built through structured systems, not random tips</li>
+          <li>Performance psychology separates good players from great ones</li>
+        </ul>
       </div>
+      <div class="phil-visual">
+        <div class="icon">🧠</div>
+        <h3>Mind First, Swing Second</h3>
+        <p>
+          The mental game accounts for 80% of performance at the highest levels.
+          Master your mind, and your swing will follow.
+        </p>
+      </div>
+    </div>
+  </section>
 
-      <!-- Elite -->
-      <div class="program-card">
-        <div class="program-top">
-          <div class="program-icon">&#128081;</div>
-          <div class="program-name">Genii Elite</div>
-          <div class="program-desc">Direct 1-on-1 coaching with Mike. The same access that Bryson had. For competitive amateurs and aspiring professionals only.</div>
-        </div>
-        <div class="program-price-row">
-          <div class="program-price">$2,500</div>
-          <div class="program-period">/month</div>
-        </div>
-        <div class="program-features">
-          <div class="program-feature">4x private video calls with Mike</div>
-          <div class="program-feature">Unlimited swing video submissions</div>
-          <div class="program-feature">Full FlightScope analysis sessions</div>
-          <div class="program-feature">Custom club fitting consultation</div>
-          <div class="program-feature">Tournament preparation plans</div>
-          <div class="program-feature">Mental game and course strategy</div>
-        </div>
-        <div class="program-cta">
-          <a href="#" class="btn-outline" style="width:100%; text-align:center; display:block;">Apply Now</a>
-        </div>
-      </div>
+  <!-- CTA SECTION -->
+  <section class="cta-section" id="get-started">
+    <div class="cta-container">
+      <h2>Ready to Elevate Your Game?</h2>
+      <p>
+        Join the GolfGenii system and start training like a champion today.
+        The same coaching that built Bryson DeChambeau is now available to you.
+      </p>
+      <a href="#" class="btn">Get Started Now</a>
+    </div>
+  </section>
 
-    </div>
-  </div>
-</section>
-
-<!-- GEAR AFFILIATE -->
-<section class="gear" id="gear">
-  <div class="container">
-    <div class="gear-header">
-      <div class="section-tag">Mike's Recommended Gear</div>
-      <h2 class="section-title">Equipment Mike Actually Uses</h2>
-      <p class="section-sub">After 30+ years coaching at the highest level, Mike knows exactly what works. Every recommendation below is something he uses at Dragonfly Golf Club.</p>
-    </div>
-    <div class="gear-grid">
-      <a href="#" class="gear-card">
-        <div class="gear-card-icon">&#127944;</div>
-        <div class="gear-card-body">
-          <h4>TaylorMade Qi10 Driver</h4>
-          <p>Mike's go-to recommendation for distance seekers. The exact driver category he fits most performance students into after FlightScope analysis.</p>
-          <span class="gear-tag">Clubs &bull; 9% Commission</span>
-        </div>
-      </a>
-      <a href="#" class="gear-card">
-        <div class="gear-card-icon">&#129354;</div>
-        <div class="gear-card-body">
-          <h4>Titleist Custom Iron Fitting</h4>
-          <p>Custom-fit irons built to your exact specs. Mike partners with Titleist for full custom fitting sessions at Dragonfly -- available online too.</p>
-          <span class="gear-tag">Custom Fit &bull; 8% + $25/fitting</span>
-        </div>
-      </a>
-      <a href="#" class="gear-card">
-        <div class="gear-card-icon">&#128200;</div>
-        <div class="gear-card-body">
-          <h4>FlightScope Mevo+ Launch Monitor</h4>
-          <p>The same launch monitor Mike uses at his performance institute. Now available for home practice. See exactly what your ball is doing.</p>
-          <span class="gear-tag">Tech &bull; High Ticket</span>
-        </div>
-      </a>
-      <a href="#" class="gear-card">
-        <div class="gear-card-icon">&#9971;</div>
-        <div class="gear-card-body">
-          <h4>Putting Green (Home Install)</h4>
-          <p>Mike recommends a dedicated practice green for any serious student. Carl's Place custom putting greens are built to exact spec, ship direct.</p>
-          <span class="gear-tag">Home Setup &bull; 15% Commission</span>
-        </div>
-      </a>
-    </div>
-    <div style="text-align:center;">
-      <a href="#" class="btn-outline">Browse Full Gear Guide</a>
-    </div>
-  </div>
-</section>
-
-<!-- SIMULATOR HUB -->
-<section class="sim-hub" id="simulator">
-  <div class="container">
-    <div class="sim-inner">
-      <div class="sim-text">
-        <div class="section-tag">Home Simulator Guide</div>
-        <h2 class="section-title">Build Your Home Golf Studio</h2>
-        <p>The home golf simulator market has exploded -- $1.9 billion in 2025 and growing at nearly 10% per year. Mike's FlightScope experience makes him uniquely qualified to guide you to the right setup for your space and budget.</p>
-        <div class="sim-brands">
-          <span class="sim-brand-pill">FlightScope</span>
-          <span class="sim-brand-pill">SkyTrak</span>
-          <span class="sim-brand-pill">Foresight Sports</span>
-          <span class="sim-brand-pill">Trackman</span>
-          <span class="sim-brand-pill">Carl's Place</span>
-          <span class="sim-brand-pill">Shop Indoor Golf</span>
-        </div>
-        <div class="sim-callout">
-          <p><strong>Mike's take:</strong> "Most golfers buy too much too fast or too little to actually improve. After 30 years with launch monitor data, I know exactly what matters and what's marketing fluff. My simulator guide cuts through it."</p>
-        </div>
-        <br/>
-        <a href="#" class="btn-primary">Get the Simulator Guide</a>
-      </div>
-      <div class="sim-visual">
-        <div class="sim-icon">&#127968;</div>
-        <div class="sim-label">Home Golf Studio</div>
-        <div class="sim-price-tag">
-          <div class="sim-price-info">
-            <small>Average simulator sale</small>
-            <strong>$2,300+</strong>
-          </div>
-          <div class="sim-commission">
-            <small>Your commission</small>
-            <strong>$184 - $500</strong>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- YOUTUBE -->
-<section class="youtube-section" id="youtube">
-  <div class="container">
-    <div class="youtube-inner">
-      <div>
-        <div class="section-tag">Free Content</div>
-        <h2 class="section-title">Lessons From the Coach Himself</h2>
-        <p class="section-sub">Mike publishes free lessons on YouTube every week. Get a feel for the system before you invest. Thousands of golfers have already dropped strokes just from the free content.</p>
-        <br/>
-        <a href="https://youtube.com/@golfgenii" target="_blank" class="btn-primary">Subscribe on YouTube</a>
-      </div>
-      <div>
-        <div class="yt-cards">
-          <div class="yt-card">
-            <div class="yt-thumb">
-              <div class="yt-play"></div>
-            </div>
-            <div class="yt-meta">
-              <h5>The One Drill Bryson Did Every Day to Build His Swing</h5>
-              <span>148K views &bull; Free</span>
-            </div>
-          </div>
-          <div class="yt-card">
-            <div class="yt-thumb">
-              <div class="yt-play"></div>
-            </div>
-            <div class="yt-meta">
-              <h5>Why Your Driver Spin Rate Is Killing Your Distance (FlightScope Deep Dive)</h5>
-              <span>92K views &bull; Free</span>
-            </div>
-          </div>
-          <div class="yt-card">
-            <div class="yt-thumb">
-              <div class="yt-play"></div>
-            </div>
-            <div class="yt-meta">
-              <h5>How to Break 80: The 3 Stats That Actually Matter</h5>
-              <span>211K views &bull; Free</span>
-            </div>
-          </div>
-        </div>
-        <div class="yt-cta-box" style="margin-top:16px;">
-          <p>Want the advanced stuff? Genii Performance members get exclusive deep-dive sessions every month.</p>
-          <a href="#programs" class="btn-outline" style="font-size:0.85rem; padding:10px 24px;">Unlock Advanced Content</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REVENUE DASHBOARD -->
-<section class="revenue-dash">
-  <div class="container">
-    <div class="rev-header">
-      <div class="section-tag">The GolfGenii Business Model</div>
-      <h2 class="section-title">Five Streams. One Brand. One Coach.</h2>
-      <p class="section-sub">GolfGenii is built as a diversified revenue machine. Each stream feeds the others -- content drives affiliate sales, courses fund production, elite coaching builds authority.</p>
-    </div>
-    <div class="rev-grid">
-      <div class="rev-card">
-        <div class="rev-icon">&#128181;</div>
-        <div class="rev-amount">$200K</div>
-        <div class="rev-stream">Affiliate / month</div>
-      </div>
-      <div class="rev-card">
-        <div class="rev-icon">&#127891;</div>
-        <div class="rev-amount">$300K</div>
-        <div class="rev-stream">Digital Products / month</div>
-      </div>
-      <div class="rev-card">
-        <div class="rev-icon">&#128250;</div>
-        <div class="rev-amount">$150K</div>
-        <div class="rev-stream">YouTube Ad Rev / month</div>
-      </div>
-      <div class="rev-card">
-        <div class="rev-icon">&#128081;</div>
-        <div class="rev-amount">$350K</div>
-        <div class="rev-stream">Elite 1-on-1 Coaching / month</div>
-      </div>
-    </div>
-    <div class="rev-total-bar">
-      <div>
-        <div class="rev-total-label" style="color:rgba(13,13,13,0.6);">Target Monthly Revenue</div>
-        <div class="rev-total-sub">Achievable at 50K monthly visitors + 1K coaching students</div>
-      </div>
-      <div style="text-align:right;">
-        <div class="rev-total-num">$1,000,000</div>
-        <div class="rev-total-sub">Per Month</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="container">
-    <div style="text-align:center; margin-bottom:52px;">
-      <div class="section-tag">What Students Say</div>
-      <h2 class="section-title">Real Results. Real Golfers.</h2>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testi-quote">"Mike's FlightScope session showed me I was losing 30 yards purely from poor attack angle. Fixed it in two sessions. My driver is now the best part of my game. Shot 74 last weekend -- first time under 75."</div>
-        <div class="testi-author">
-          <div class="testi-avatar">JR</div>
-          <div>
-            <div class="testi-name">James R.</div>
-            <div class="testi-detail">Handicap dropped 8 to 3 in 6 months</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testi-quote">"The online course alone is worth 10x the price. I've spent thousands on lessons over 20 years. Mike's system is the first thing that actually explains the WHY. I wish I'd found this 15 years ago."</div>
-        <div class="testi-author">
-          <div class="testi-avatar">MT</div>
-          <div>
-            <div class="testi-name">Mark T.</div>
-            <div class="testi-detail">Genii Foundations graduate, 12 handicap</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testi-quote">"I drove down to Dragonfly for a fitting session with Mike after taking the online course. He optimized my entire bag in 3 hours. The FlightScope data doesn't lie. Best money I've spent on golf -- ever."</div>
-        <div class="testi-author">
-          <div class="testi-avatar">CL</div>
-          <div>
-            <div class="testi-name">Chris L.</div>
-            <div class="testi-detail">Elite member, competitive amateur</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <h2>Your Game. Coached by a Champion Maker.</h2>
-    <p>Whether you want to break 90, compete at the club championship level, or develop a professional game -- Mike's system meets you exactly where you are.</p>
-    <div class="cta-actions">
-      <a href="#programs" class="btn-white">Choose a Program</a>
-      <a href="#youtube" class="btn-outline" style="border-color:rgba(255,255,255,0.4); color:white;">Watch Free Lessons</a>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
       <div class="footer-brand">
-        <a href="#" class="nav-logo">Golf<span style="color:white;">Genii</span></a>
-        <p>The official coaching platform of Mike Schy -- the coach who guided Bryson DeChambeau to the 2015 NCAA and U.S. Amateur double. Based at Dragonfly Golf Club, coaching golfers worldwide.</p>
+        <h3>GolfGenii</h3>
+        <p>
+          Elite coaching from Mike Schy, the coach who built Bryson DeChambeau into
+          a two-time major champion. Now bringing championship-level training to every golfer.
+        </p>
       </div>
-      <div class="footer-col">
-        <h5>Programs</h5>
-        <a href="#">Genii Foundations ($97)</a>
-        <a href="#">Genii Performance ($297/mo)</a>
-        <a href="#">Genii Elite ($2,500/mo)</a>
-        <a href="#">Custom Fitting</a>
+      <div class="footer-section">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#story">Story</a></li>
+        </ul>
       </div>
-      <div class="footer-col">
-        <h5>Gear</h5>
-        <a href="#">Simulator Guide</a>
-        <a href="#">Club Recommendations</a>
-        <a href="#">Training Aids</a>
-        <a href="#">Home Putting Greens</a>
+      <div class="footer-section">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
       </div>
-      <div class="footer-col">
-        <h5>Connect</h5>
-        <a href="https://youtube.com/@golfgenii" target="_blank">YouTube</a>
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
-        <a href="#">Dragonfly Golf Club</a>
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 GolfGenii.com &bull; Mike Schy Golf Performance &bull; Dragonfly Golf Club, CA</p>
-      <div class="footer-legal">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Affiliate Disclosure</a>
-      </div>
+      © 2026 GolfGenii. All rights reserved.
     </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
